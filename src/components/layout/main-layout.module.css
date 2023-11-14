@@ -1,0 +1,12 @@
+main{
+    margin-inline: 5rem;
+    padding: 2rem;
+    /* min-height: 100dvh; */
+}
+
+footer{
+    width: 100%;
+    background: #4d6e6b;
+    display: flex;
+    justify-content: center;
+}
