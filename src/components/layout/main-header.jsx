@@ -6,7 +6,11 @@ import { PresentationChartBarIcon } from '@heroicons/react/20/solid';
 
 const Header = () => {
   return (
-    <header className={classes.navigation}>
+    <header
+      className={
+        classes.navigation + ' max-w-7xl xl:mx-auto xl:w-full xl:p-0 sm:m-0'
+      }
+    >
       <NavLink to="/">
         <PresentationChartBarIcon className="w-5" />
       </NavLink>

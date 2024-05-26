@@ -7,7 +7,7 @@ export const searchImages = async (query) => {
       },
     }
   );
+  if (!request.ok) return { error: { status: request.status } };
 
-  const response = await request.json();
-  console.log(response);
+  return await request.json();
 };
