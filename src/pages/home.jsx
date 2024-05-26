@@ -1,11 +1,18 @@
+import ImagesList from '../components/ImagesList';
+import SearchBar from '../components/SearchBar';
 import { searchImages } from '../services/searchImages';
 
 const Home = () => {
-  searchImages();
+  const handleSubmit = (term) => {
+    console.log('Hey from the Parent component', term);
+  };
+  //searchImages();
   return (
     <>
-      <h1 className="">Home view</h1>
-      <p>everything you want is in here</p>
+      <SearchBar onSubmit={handleSubmit} />
+      <section className="mt-4">
+        <ImagesList />
+      </section>
     </>
   );
 };

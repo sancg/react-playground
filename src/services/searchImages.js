@@ -7,7 +7,6 @@ export const searchImages = async (query) => {
       },
     }
   );
-  console.log({ key: import.meta.env.VITE_AUTH_KEY, query });
 
   const response = await request.json();
   console.log(response);
