@@ -1,4 +1,4 @@
-header{
+/* header {
     position: sticky;
     top: 0;
     background-color: rgba(61, 71, 104, 0.8);
@@ -6,28 +6,36 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
+} */
 
-.navigation{
+.navigation {
     display: flex;
     place-items: center;
+    height: 50px;
+    justify-content: space-between;
     gap: .5rem;
     margin: 0;
-    padding: 0;
+    /* margin: 0 auto; */
+    padding: 0 2rem;
 }
 
-.navigation li{
-   list-style: none;
+.navigation li {
+    list-style: none;
 }
 
-.navigation a, header a{
+.navigation a,
+header a {
+    padding: 0.5rem;
     display: inline-block;
-    padding: 1rem;
     border-radius: 18px;
     background: transparent;
     transition: background 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.navigation a:hover, .navigation a:focus, header a:hover, .navigation a:focus{
+
+.navigation a:hover,
+.navigation a:focus,
+header a:hover,
+.navigation a:focus {
     color: rgb(243, 243, 243);
     background: hsl(226, 45%, 18%)
 }
