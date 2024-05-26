@@ -3,7 +3,7 @@ import ImagesList from '../components/ImagesList';
 import SearchBar from '../components/SearchBar';
 import { searchImages } from '../services/searchImages';
 
-const Home = () => {
+const Home = ({ onSaveFavorite }) => {
   const [apiResult, setApiResult] = useState(null);
 
   const handleSubmit = (term) => {
@@ -19,7 +19,7 @@ const Home = () => {
     <>
       <SearchBar onSubmit={handleSubmit} />
       <section className="mt-4">
-        <ImagesList imageAPI={apiResult} />
+        <ImagesList props={{ apiResult, onSaveFavorite }} />
       </section>
     </>
   );
