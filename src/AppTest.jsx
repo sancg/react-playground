@@ -2,12 +2,10 @@ import { useState } from 'react';
 import { Dropdown } from './components/ui/Dropdown/Dropdown';
 
 export const AppTest = () => {
-  //TODO: Refactor with the pattern of form controlled
-
   const [selection, setSelection] = useState(null);
 
   const handleSelect = (option) => {
-    console.log(option);
+    // console.log(option);
     setSelection((_prev) => option);
   };
 
@@ -17,10 +15,8 @@ export const AppTest = () => {
     { value: '#3357FF', label: 'Electric Blue' },
   ];
   return (
-    <div>
-      <Dropdown {...{ onChange: handleSelect, options: colors }}>
-        {selection?.label}
-      </Dropdown>
+    <div className="flex m-2">
+      <Dropdown onChange={handleSelect} options={colors} value={selection} />
     </div>
   );
 };
