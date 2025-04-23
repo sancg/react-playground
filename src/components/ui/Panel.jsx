@@ -1,13 +1,10 @@
-import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export const Panel = ({ children, className, ...rest }) => {
+  const baseStyle = 'px-3 rounded-md shadow-md border border-slate-500 w-full';
+
   return (
-    <div
-      className={
-        'px-3 rounded-md shadow-md border border-slate-500 ' + className
-      }
-      {...rest}
-    >
+    <div className={twMerge(baseStyle, className)} {...rest}>
       {children}
     </div>
   );

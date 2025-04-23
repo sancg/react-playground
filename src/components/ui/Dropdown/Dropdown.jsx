@@ -1,5 +1,6 @@
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { useEffect, useRef, useState } from 'react';
+import { Panel } from '../Panel';
 
 export const Dropdown = ({ options, value, onChange }) => {
   const dropRef = useRef(null);
@@ -7,7 +8,8 @@ export const Dropdown = ({ options, value, onChange }) => {
 
   useEffect(() => {
     const observerClick = (event) => {
-      if (dropRef?.current) {
+      // IMPROVE: Here I've select the reference DOM and its compared with the DOM that was clicked
+      if (!dropRef?.current.contains(event.target)) {
         setIsOpen(false);
       }
     };
@@ -31,7 +33,7 @@ export const Dropdown = ({ options, value, onChange }) => {
   const renderOptions = options.map(({ value, label }) => {
     return (
       <option
-        className="p-2 rounded-md hover:bg-slate-700"
+        className="p-2 rounded-md hover:bg-indigo-800 w-full"
         onClick={() => handleOptionClick({ value, label })}
         key={value}
         value={value.replace('#', '').trim()}
@@ -44,16 +46,17 @@ export const Dropdown = ({ options, value, onChange }) => {
   let content = value?.label || 'Select...';
   return (
     <div ref={dropRef} className="relative w-full min-w-fit">
-      <div
-        className="py-2 flex items-center justify-between cursor-pointer bg-slate-700 px-3 rounded-md shadow-md border border-slate-500"
+      <Panel
+        className="flex items-center justify-between bg-indigo-800 py-2 cursor-pointer"
         onClick={handleClick}
       >
-        {content} <ChevronDownIcon width={24} />
-      </div>
+        {content}
+        <ChevronDownIcon width={24} />
+      </Panel>
       {isOpen && (
-        <div className="absolute top-full cursor-pointer bg-slate-600 w-full left-0 rounded-md shadow-sm border border-slate-500">
+        <Panel className="absolute top-full cursor-pointer bg-indigo-600 px-0">
           {renderOptions}
-        </div>
+        </Panel>
       )}
     </div>
   );
