@@ -1,5 +1,10 @@
 import { useState } from 'react';
+import { NavigationProvider } from './context/navigation';
+import NotFound from './pages/NotFound';
+import { Link } from './components/navigation/Link';
+import Route from './components/navigation/Route';
 import { Dropdown } from './components/ui/Dropdown/Dropdown';
+import DropdownPage from './pages/DropdownPage';
 
 export const AppTest = () => {
   const [selection, setSelection] = useState(null);
@@ -15,8 +20,14 @@ export const AppTest = () => {
     { value: '#3357FF', label: 'Electric Blue' },
   ];
   return (
-    <div className="flex m-2">
-      <Dropdown onChange={handleSelect} options={colors} value={selection} />
-    </div>
+    <NavigationProvider>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="/dropdown">Dropdown</Link>
+      </div>
+      <Route path="/dropdown">
+        <DropdownPage />
+      </Route>
+    </NavigationProvider>
   );
 };
