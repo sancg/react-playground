@@ -8,6 +8,9 @@ export const Dropdown = ({ options, value, onChange }) => {
 
   useEffect(() => {
     const observerClick = (event) => {
+      if (!dropRef.current) {
+        return;
+      }
       // IMPROVE: Here I've select the reference DOM and its compared with the DOM that was clicked
       if (!dropRef?.current.contains(event.target)) {
         setIsOpen(false);
@@ -18,7 +21,7 @@ export const Dropdown = ({ options, value, onChange }) => {
 
     return () => {
       document.removeEventListener('click', observerClick);
-      console.log('clean up function');
+      console.log('clean up function Dropdown');
     };
   }, []);
 
