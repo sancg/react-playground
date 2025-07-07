@@ -5,6 +5,7 @@ import DropdownPage from './pages/DropdownPage';
 import { Sidebar } from './components/ui/Sidebar';
 import { Layout } from './components/layout/Layout';
 import ModalPage from './pages/ModalPage';
+import DatatablePage from './pages/DatatablePage';
 
 export const AppTest = () => {
   return (
@@ -16,6 +17,9 @@ export const AppTest = () => {
         </Route>
         <Route path="/modal">
           <ModalPage />
+        </Route>
+        <Route path="/table">
+          <DatatablePage />
         </Route>
       </div>
     </Layout>
