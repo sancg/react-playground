@@ -15,10 +15,10 @@ function DatatablePage() {
     },
     { label: 'Score', render: (d) => d.score },
   ];
-
+  const keyFn = (fruit) => fruit.name;
   return (
     <div>
-      <DataTable data={data} config={config} />
+      <DataTable data={data} config={config} keyFn={keyFn} />
     </div>
   );
 }

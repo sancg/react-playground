@@ -1,15 +1,18 @@
-function DataTable({ data, config }) {
+function DataTable({ data, config, keyFn }) {
   const renderHeaders = config.map((conf) => (
     <th key={conf.label}>{conf.label}</th>
   ));
+
   const renderedRows = data.map((fruit) => {
+    const renderedCells = config.map((column) => (
+      <td className="p-2" key={column.label}>
+        {column.render(fruit)}
+      </td>
+    ));
+
     return (
-      <tr className="border-b" key={fruit.name + fruit.score}>
-        {config.map((i) => (
-          <td className="p-3" key={fruit.name + i.label}>
-            {i.render(fruit)}
-          </td>
-        ))}
+      <tr className="border-b" key={keyFn(fruit)}>
+        {renderedCells}
       </tr>
     );
   });
