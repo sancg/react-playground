@@ -8,9 +8,12 @@ function DatatablePage() {
   ];
 
   const config = [
-    { label: 'Name', render: (h) => <th key={h.label}>{h.label}</th> },
-    { label: 'Color', render: (h) => <th key={h.label}>{h.label}</th> },
-    { label: 'Score', render: (h) => <th key={h.label}>{h.label}</th> },
+    { label: 'Name', render: (d) => d.name },
+    {
+      label: 'Color',
+      render: (d) => <div className={`p-3 m-2 ${d.color}`}></div>,
+    },
+    { label: 'Score', render: (d) => d.score },
   ];
 
   return (
