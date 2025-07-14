@@ -4,16 +4,18 @@ function DatatablePage() {
   const data = [
     { name: 'Orange', color: 'bg-orange-200', score: 5 },
     { name: 'Apple', color: 'bg-red-200', score: 3 },
-    { name: 'Banana', color: 'bg-yellow-200', score: 5 },
+    { name: 'Banana', color: 'bg-yellow-200', score: 1 },
+    { name: 'Tropical', color: 'bg-cyan-200', score: 20 },
+    { name: 'Sky', color: 'bg-blue-200', score: 10 },
   ];
 
   const config = [
-    { label: 'Name', render: (d) => d.name },
+    { label: 'Name', render: (d) => d.name, header: true },
     {
       label: 'Color',
       render: (d) => <div className={`p-3 m-2 ${d.color}`}></div>,
     },
-    { label: 'Score', render: (d) => d.score },
+    { label: 'Score', render: (d) => d.score, header: true },
   ];
   const keyFn = (fruit) => fruit.name;
   return (
