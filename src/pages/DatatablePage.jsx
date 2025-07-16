@@ -22,8 +22,6 @@ function DatatablePage() {
   return (
     <div>
       <SortableTable data={data} config={config} keyFn={keyFn} />
-      <hr></hr>
-      <Table data={data} config={config} keyFn={keyFn} />
     </div>
   );
 }
