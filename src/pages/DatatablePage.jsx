@@ -1,4 +1,5 @@
-import DataTable from '../components/Datatable/DataTable';
+import SortableTable from '../components/Datatable/SortableTable';
+import Table from '../components/Datatable/Table';
 
 function DatatablePage() {
   const data = [
@@ -10,17 +11,19 @@ function DatatablePage() {
   ];
 
   const config = [
-    { label: 'Name', render: (d) => d.name, header: true },
+    { label: 'Name', render: (d) => d.name, sortValue: (d) => d.name },
     {
       label: 'Color',
       render: (d) => <div className={`p-3 m-2 ${d.color}`}></div>,
     },
-    { label: 'Score', render: (d) => d.score, header: true },
+    { label: 'Score', render: (d) => d.score, sortValue: (d) => d.score },
   ];
   const keyFn = (fruit) => fruit.name;
   return (
     <div>
-      <DataTable data={data} config={config} keyFn={keyFn} />
+      <SortableTable data={data} config={config} keyFn={keyFn} />
+      <hr></hr>
+      <Table data={data} config={config} keyFn={keyFn} />
     </div>
   );
 }
