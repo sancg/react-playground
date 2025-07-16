@@ -1,11 +1,9 @@
-import React from 'react';
 import { useState } from 'react';
 import Table from './Table';
 import {
   ArrowsUpDownIcon,
   ChevronDoubleDownIcon,
   ChevronDoubleUpIcon,
-  FunnelIcon,
 } from '@heroicons/react/20/solid';
 
 export default function SortableTable(props) {
@@ -14,25 +12,25 @@ export default function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
 
-  const handleClick = (obj) => {
-    if (sortBy && sortBy !== obj.label) {
+  const handleClick = (label) => {
+    if (sortBy && sortBy !== label) {
       setSortOrder('asc');
-      setSortBy(obj.label);
+      setSortBy(label);
       return;
     }
     if (sortOrder === null) {
       setSortOrder('asc');
-      setSortBy(obj.label);
+      setSortBy(label);
     } else if (sortOrder === 'asc') {
       setSortOrder('desc');
-      setSortBy(obj.label);
+      setSortBy(label);
     } else if (sortOrder === 'desc') {
       setSortOrder(null);
       setSortBy(null);
     }
   };
 
-  const headerConfig = config.map((column) => {
+  const sortableConfig = config.map((column) => {
     if (!column.sortValue) {
       return column;
     }
@@ -43,10 +41,10 @@ export default function SortableTable(props) {
         <th
           key={column.label}
           className="max-w-3xl min-w-28 cursor-pointer select-none"
-          onClick={() => handleClick(column)}
+          onClick={() => handleClick(column.label)}
         >
           <div className="flex items-center justify-around">
-            {getIcons(sortOrder)}
+            {getIcons(sortOrder, sortBy, column.label)}
             {column.label}
           </div>
         </th>
@@ -63,7 +61,7 @@ export default function SortableTable(props) {
     sortedData = data.toSorted((a, b) => {
       const valueA = columnSort.sortValue(a);
       const valueB = columnSort.sortValue(b);
-      console.log({ valueA, valueB });
+
       if (typeof valueA === 'string') {
         return valueA.localeCompare(valueB) * order;
       }
@@ -75,17 +73,21 @@ export default function SortableTable(props) {
   return (
     <div>
       {sortBy} - {sortOrder}
-      <Table {...props} config={headerConfig} data={sortedData} />
+      <Table {...props} config={sortableConfig} data={sortedData} />
     </div>
   );
 }
 
-function getIcons(order, element) {
+function getIcons(order, sortElement, current) {
   let icon = {
     asc: <ChevronDoubleUpIcon width={20} />,
     desc: <ChevronDoubleDownIcon width={20} />,
     none: <ArrowsUpDownIcon width={20} />,
   };
+  if (sortElement !== current) {
+    return icon.none;
+  }
+
   if (order === null) {
     return icon.none;
   }
