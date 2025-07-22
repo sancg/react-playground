@@ -1,9 +1,10 @@
-import Route from './components/contentCourse/navigation/Route';
+import Route from './components/content-course/navigation/Route';
 import DropdownPage from './pages/content-course/DropdownPage';
 import { Sidebar } from './components/ui/Sidebar';
 import { Layout } from './components/layout/Layout';
 import ModalPage from './pages/content-course/ModalPage';
 import DatatablePage from './pages/content-course/DatatablePage';
+import CountPage from './pages/content-course/CountPage';
 
 export const AppTest = () => {
   return (

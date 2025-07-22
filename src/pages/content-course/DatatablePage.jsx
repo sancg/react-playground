@@ -1,5 +1,4 @@
-import SortableTable from '../../components/contentCourse/Datatable/SortableTable';
-import Table from '../../components/contentCourse/Datatable/Table';
+import SortableTable from '../../components/content-course/Datatable/SortableTable';
 
 function DatatablePage() {
   const data = [
