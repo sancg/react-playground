@@ -20,6 +20,9 @@ export const AppTest = () => {
         <Route path="/table">
           <DatatablePage />
         </Route>
+        <Route path="/counter">
+          <CountPage />
+        </Route>
       </div>
     </Layout>
   );
