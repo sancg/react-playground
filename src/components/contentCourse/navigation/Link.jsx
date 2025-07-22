@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import NavigationContext from '../../context/navigation';
+import NavigationContext from '../../../context/navigation';
 import clsx from 'clsx';
 export const Link = ({ to, children, className, ...rest }) => {
   const { navigate, currentPath } = useContext(NavigationContext);

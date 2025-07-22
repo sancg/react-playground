@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { useEffect, useRef, useState } from 'react';
-import { Panel } from '../ui/Panel';
+import { Panel } from '../../ui/Panel';
 
 export const Dropdown = ({ options, value, onChange }) => {
   const dropRef = useRef(null);

@@ -1,4 +1,4 @@
-import { Link } from '../navigation/Link';
+import { Link } from '../contentCourse/navigation/Link';
 import { twMerge } from 'tailwind-merge';
 
 export const Sidebar = ({ className }) => {

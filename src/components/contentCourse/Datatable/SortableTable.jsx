@@ -1,4 +1,4 @@
-import useSorted from '../../hooks/useSorted';
+import useSorted from '../../../hooks/useSorted';
 import Table from './Table';
 import {
   ArrowsUpDownIcon,

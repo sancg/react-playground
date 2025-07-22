@@ -1,11 +1,9 @@
-import { useState } from 'react';
-import NotFound from './pages/NotFound';
-import Route from './components/navigation/Route';
-import DropdownPage from './pages/DropdownPage';
+import Route from './components/contentCourse/navigation/Route';
+import DropdownPage from './pages/content-course/DropdownPage';
 import { Sidebar } from './components/ui/Sidebar';
 import { Layout } from './components/layout/Layout';
-import ModalPage from './pages/ModalPage';
-import DatatablePage from './pages/DatatablePage';
+import ModalPage from './pages/content-course/ModalPage';
+import DatatablePage from './pages/content-course/DatatablePage';
 
 export const AppTest = () => {
   return (
