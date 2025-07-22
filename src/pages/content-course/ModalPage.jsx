@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Modal from '../components/Modal/Modal';
+import Modal from '../../components/content-course/Modal/Modal';
 
 function ModalPage() {
   const [showModal, setShowModal] = useState(false);

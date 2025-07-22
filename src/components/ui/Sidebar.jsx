@@ -1,4 +1,4 @@
-import { Link } from '../navigation/Link';
+import { Link } from '../content-course/navigation/Link';
 import { twMerge } from 'tailwind-merge';
 
 export const Sidebar = ({ className }) => {
@@ -10,6 +10,7 @@ export const Sidebar = ({ className }) => {
     { label: 'Buttons', path: '/buttons' },
     { label: 'Modal', path: '/modal' },
     { label: 'Tables', path: '/table' },
+    { label: 'Counter', path: '/counter' },
   ];
   const renderedLinks = links.map((link) => {
     return (
