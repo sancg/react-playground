@@ -8,7 +8,12 @@ export default function CountPage() {
   const decrement = () => {
     setCount((prev) => prev - 1);
   };
+  const addNumberOnSubmit = (e) => {
+    e.preventDefault();
+    const augmentNumber = Number(e.currentTarget.elements[1].value);
 
+    setCount((prev) => prev + augmentNumber);
+  };
   return (
     <div>
       <h1>Counter at: {count}</h1>
@@ -16,14 +21,10 @@ export default function CountPage() {
         <button onClick={increment}>Increment</button>
         <button onClick={decrement}>Decrement</button>
       </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault;
-        }}
-      >
+      <form action="" onSubmit={(e) => addNumberOnSubmit(e)}>
         <fieldset className="flex flex-col">
           <label htmlFor="count_value">Add more!</label>
-          <input type="text" name="count_value" id="count_value" />
+          <input type="number" name="count_value" id="count_value" />
         </fieldset>
         <button type="submit">Add</button>
       </form>
