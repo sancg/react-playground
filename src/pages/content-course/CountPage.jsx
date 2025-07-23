@@ -1,19 +1,7 @@
-import { useState } from 'react';
-
+import useCounter from '../../hooks/content-course/use-counter';
 export default function CountPage() {
-  const [count, setCount] = useState(0);
-  const increment = () => {
-    setCount((prev) => prev + 1);
-  };
-  const decrement = () => {
-    setCount((prev) => prev - 1);
-  };
-  const addNumberOnSubmit = (e) => {
-    e.preventDefault();
-    const augmentNumber = Number(e.currentTarget.elements[1].value);
+  const { count, increment, decrement, addNumberOnSubmit } = useCounter();
 
-    setCount((prev) => prev + augmentNumber);
-  };
   return (
     <div>
       <h1>Counter at: {count}</h1>
