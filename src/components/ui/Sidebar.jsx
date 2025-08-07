@@ -11,6 +11,7 @@ export const Sidebar = ({ className }) => {
     { label: 'Modal', path: '/modal' },
     { label: 'Tables', path: '/table' },
     { label: 'Counter', path: '/counter' },
+    { label: 'Playlist', path: '/playlist' },
   ];
   const renderedLinks = links.map((link) => {
     return (

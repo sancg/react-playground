@@ -5,12 +5,16 @@ import { Layout } from './components/layout/Layout';
 import ModalPage from './pages/content-course/ModalPage';
 import DatatablePage from './pages/content-course/DatatablePage';
 import CountPage from './pages/content-course/CountPage';
+import PlayListPage from './pages/content-course/PlayListPage';
 
 export const AppTest = () => {
   return (
     <Layout>
       <Sidebar className="" />
       <div className="col-span-5 p-2">
+        <Route path="/playlist">
+          <PlayListPage />
+        </Route>
         <Route path="/">
           <DropdownPage />
         </Route>
