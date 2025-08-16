@@ -5,8 +5,8 @@ import { Layout } from './components/layout/Layout';
 import ModalPage from './pages/content-course/ModalPage';
 import DatatablePage from './pages/content-course/DatatablePage';
 import CountPage from './pages/content-course/CountPage';
+
 import PlayListPage from './pages/content-course/PlayListPage';
-import { PlaylistProvider } from './context/usePlaylist';
 export const AppTest = () => {
   return (
     <Layout>
