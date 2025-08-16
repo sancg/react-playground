@@ -1,11 +1,8 @@
-import { useReducer } from 'react';
 import Playlist from '../../components/content-course/playlist';
-import { getRandomSong, getRandomMovie } from '../../utils/random_pick';
-import { useContext } from 'react';
-import playlistContext from '../../context/usePlaylist';
+import usePlaylistReducer from '../../hooks/usePlaylistReducer';
 
 export default function PlayListPage() {
-  const { state, dispatch, triggers } = useContext(playlistContext);
+  const { state, dispatch, triggers } = usePlaylistReducer();
   return (
     <>
       <button
