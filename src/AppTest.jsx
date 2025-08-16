@@ -13,9 +13,7 @@ export const AppTest = () => {
       <Sidebar className="" />
       <div className="col-span-5 p-2">
         <Route path="/playlist">
-          <PlaylistProvider>
-            <PlayListPage />
-          </PlaylistProvider>
+          <PlayListPage />
         </Route>
         <Route path="/">
           <DropdownPage />
