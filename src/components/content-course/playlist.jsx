@@ -3,6 +3,7 @@ import { Panel } from '../ui/Panel';
 
 function Playlist({ title, data = [], actions }) {
   const { dispatch, ...rest } = actions;
+  console.log({ dispatch, rest });
   const ACTION_TYPE = Object.values(rest)[0]; // Quite sketchy
 
   const renderList = data.map((list, index) => {
