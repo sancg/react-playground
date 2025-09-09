@@ -1,52 +1,15 @@
-import { configureStore, createAction, createSlice } from '@reduxjs/toolkit';
-import { getRandomMovie, getRandomSong } from '../utils/random_pick';
-
-export const reset = createAction('app/reset');
-
-const songs = createSlice({
-  name: 'songs',
-  initialState: [],
-  reducers: {
-    addSong(state) {
-      const song = getRandomSong();
-      state.push(song);
-    },
-    removeSong(state, action) {
-      state.splice(action.payload, 1);
-    },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(reset, () => {
-      return [];
-    });
-  },
-});
-
-const movies = createSlice({
-  name: 'movies',
-  initialState: [],
-  reducers: {
-    addMovie(state) {
-      const movie = getRandomMovie();
-      state.push(movie);
-    },
-    removeMovie(state, action) {
-      state.splice(action.payload, 1);
-    },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(reset, () => []);
-  },
-});
+import { configureStore } from '@reduxjs/toolkit';
+import { reset } from './action/reset';
+import { addSong, removeSong, songsReducer } from './slice/songs';
+import { addMovie, moviesReducer, removeMovie } from './slice/movies';
 
 const store = configureStore({
   reducer: {
-    songs: songs.reducer,
-    movies: movies.reducer,
+    songs: songsReducer,
+    movies: moviesReducer,
   },
 });
 
 export default store;
 
-export const { addSong, removeSong } = songs.actions;
-export const { addMovie, removeMovie } = movies.actions;
+export { reset, addSong, addMovie, removeSong, removeMovie };
