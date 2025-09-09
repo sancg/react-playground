@@ -1,32 +1,28 @@
-import Playlist from '../../components/content-course/playlist';
-import usePlaylistReducer from '../../hooks/usePlaylistReducer';
-import { addSong } from '../../store';
+import { reset, addSong, removeSong, addMovie, removeMovie } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
 
-export default function PlayListPage() {
-  const songs = useSelector((state) => state.songs);
+import Playlist from '../../components/content-course/playlist';
 
-  const { state, dispatch, triggers } = usePlaylistReducer();
-  const reduxDispatch = useDispatch();
+export default function PlayListPage() {
+  const dispatch = useDispatch();
+  const songs = useSelector((state) => state.songs);
+  const movies = useSelector((state) => state.movies);
 
   return (
     <>
-      <button
-        className="p-2"
-        onClick={() => dispatch({ type: triggers.RESET_LIST })}
-      >
+      <button className="p-2" onClick={() => dispatch(reset())}>
         Reset Both
       </button>
       <Playlist
         title={'Movie Playlist'}
-        data={state.movies}
-        actions={{ dispatch, add_random: triggers.ADD_RANDOM_MOVIE }}
+        data={movies}
+        actions={{ dispatch, add: addMovie(), remove: removeMovie }}
       />
       <hr />
       <Playlist
         title={'Song Playlist'}
         data={songs}
-        actions={{ dispatch: reduxDispatch, add_random: addSong.toString() }}
+        actions={{ dispatch, add: addSong(), remove: removeSong }}
       />
     </>
   );

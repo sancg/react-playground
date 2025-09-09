@@ -1,16 +1,18 @@
-import { XMarkIcon } from '@heroicons/react/20/solid';
 import { Panel } from '../ui/Panel';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 
 function Playlist({ title, data = [], actions }) {
-  const { dispatch, ...rest } = actions;
-  console.log({ dispatch, rest });
-  const ACTION_TYPE = Object.values(rest)[0]; // Quite sketchy
+  const { dispatch, add, remove } = actions;
+
+  const handleRemoveItem = (index) => {
+    dispatch(remove(index));
+  };
 
   const renderList = data.map((list, index) => {
     return (
       <div className="flex justify-between items-center" key={index}>
         <div>{list}</div>
-        <button className="m-1 p-1">
+        <button className="m-1 p-1" onClick={() => handleRemoveItem(index)}>
           <XMarkIcon width={20} />
         </button>
       </div>
@@ -21,7 +23,7 @@ function Playlist({ title, data = [], actions }) {
     <button
       className="p-1"
       onClick={() => {
-        dispatch({ type: ACTION_TYPE });
+        dispatch(add);
       }}
     >
       Add
