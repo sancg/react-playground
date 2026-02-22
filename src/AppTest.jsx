@@ -10,6 +10,8 @@ import store from './store';
 import { Provider } from 'react-redux';
 
 import PlayListPage from './pages/content-course/PlayListPage';
+import CarsPage from './pages/content-course/carsPage';
+
 export const AppTest = () => {
   return (
     <Layout>
@@ -31,6 +33,9 @@ export const AppTest = () => {
         </Route>
         <Route path="/counter">
           <CountPage />
+        </Route>
+        <Route path="/carPrices">
+          <CarsPage />
         </Route>
       </div>
     </Layout>
