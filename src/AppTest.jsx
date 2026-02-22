@@ -6,11 +6,22 @@ import ModalPage from './pages/content-course/ModalPage';
 import DatatablePage from './pages/content-course/DatatablePage';
 import CountPage from './pages/content-course/CountPage';
 
+import store from './store';
+import { Provider } from 'react-redux';
+
+import PlayListPage from './pages/content-course/PlayListPage';
+import CarsPage from './pages/content-course/carsPage';
+
 export const AppTest = () => {
   return (
     <Layout>
       <Sidebar className="" />
       <div className="col-span-5 p-2">
+        <Route path="/playlist">
+          <Provider store={store}>
+            <PlayListPage />
+          </Provider>
+        </Route>
         <Route path="/">
           <DropdownPage />
         </Route>
@@ -22,6 +33,9 @@ export const AppTest = () => {
         </Route>
         <Route path="/counter">
           <CountPage />
+        </Route>
+        <Route path="/carPrices">
+          <CarsPage />
         </Route>
       </div>
     </Layout>
